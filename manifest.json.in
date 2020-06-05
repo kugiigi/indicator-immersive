@@ -1,0 +1,15 @@
+{
+    "name": "indicator-immersive.kugiigi",
+    "description": "A basic indicator for the immersive mode",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Indicator Immersive",
+    "hooks": {
+        "indicator-immersive": {
+            "apparmor": "indicator-immersive.apparmor",
+            "desktop":  "indicator-immersive.desktop"
+        }
+    },
+    "version": "1.0",
+    "maintainer": "Kugi Eusebio <kugi_eusebio@protonmail.com>",
+    "framework" : "ubuntu-sdk-16.04"
+}
