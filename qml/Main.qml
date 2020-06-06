@@ -80,7 +80,7 @@ MainView {
                     text: "When Immersive mode is enabled, left and right edge gestures are disabled."
                             + " This means you can't swipe from the left to open the launcher or the app drawer"
                             + " and you can't open the app spread from the right edge. This is all it does at the moment"
-                            + " but if ever this actually gets into Lomiri officially, maybe some other gestures can also be disbaled"
+                            + " but if ever this actually gets into Lomiri officially, maybe some other gestures can also be disabled"
                             + " such as the 3-finger gestures in tablets"
                     wrapMode: Text.Wrap
                 }
@@ -97,7 +97,7 @@ MainView {
                 Label{
                     Layout.fillWidth: true
                     
-                    text: "Left and right egdes are disabled by simply setting Lomiri's GSettings key <i>\"Edge Drag Width\"</i> to 0."
+                    text: "Left and right edges are disabled by simply setting Lomiri's GSettings key <i>\"Edge Drag Width\"</i> to 0."
                             + " This settings can also be adjusted via UT Tweak Tool but the range there is only limited to 1-6."
                     wrapMode: Text.Wrap
                 }
@@ -118,6 +118,7 @@ MainView {
                             + " The still active edge depends on the orientation and possibly an \"invisible bug\" on these devices."
                             + "\n\n- Disabling Immersive mode will reset the settings \"Edge Drag Width\" to its default value which is 2."
                             + " So take note for those users who changed this value especially those who use a phone case."
+                            + "\n\n- While on Immersive mode, 4-finger tap on the screen to open the app drawer."
                             + "\n\n- Don't forget to uninstall the indicator here first before uninstalling this app."
                     wrapMode: Text.Wrap
                 }
