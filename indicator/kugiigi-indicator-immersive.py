@@ -8,6 +8,7 @@ import logging
 
 from gi.repository import Gio
 from gi.repository import GLib
+from configparser import ConfigParser
 
 BUS_NAME = 'com.kugiigi.indicator.immersive'
 BUS_OBJECT_PATH = '/com/kugiigi/indicator/immersive'
@@ -24,9 +25,13 @@ logger.setLevel(logging.DEBUG)
 class ImmersiveIndicator(object):
     ROOT_ACTION = 'root'
     CURRENT_ACTION = "toggle"
+    SETTINGS_ACTION = 'settings'
     MAIN_SECTION = 0
     BASE_KEY = 'com.canonical.Unity8'
-
+    
+    config_file = "/home/phablet/.config/indicator-immersive/indicator-immersive.conf"  # TODO don't hardcode this
+    config_object = ConfigParser()
+    
     def __init__(self, bus):
         self.bus = bus
         self.action_group = Gio.SimpleActionGroup()
@@ -36,6 +41,11 @@ class ImmersiveIndicator(object):
         self.current_switch_icon = 'phone-smartphone-symbolic'
         
         self.settings = Gio.Settings.new(self.BASE_KEY)
+        
+    def get_default_edge_width(self):
+        self.config_object.read(self.config_file)
+        general_config = self.config_object["General"]
+        return int(general_config['defaultEdgeWidth'].strip())
 
     def get_text(self, condition):
         text = 'Indicator Immersive'
@@ -49,29 +59,42 @@ class ImmersiveIndicator(object):
         logger.debug('toggle_mode_activated')
         edgeWidth = self.current_edgewidth()
         if edgeWidth == 0:
-            self.settings.reset('edge-drag-width')
+            self.settings.set_uint('edge-drag-width', self.get_default_edge_width())
             self.current_switch_icon = 'phone-smartphone-symbolic'
         else:
             self.settings.set_uint('edge-drag-width', 0)
             self.current_switch_icon = 'media-record'
         
         self.update_immersivemode()
+        
+    def settings_action_activated(self, action, data):
+        logger.debug('settings_action_activated')
+        subprocess.Popen(shlex.split('ubuntu-app-launch indicator-immersive.kugiigi_indicator-immersive'))
+
 
     def _setup_actions(self):
         root_action = Gio.SimpleAction.new_stateful(self.ROOT_ACTION, None, self.root_state())
         self.action_group.insert(root_action)
         
-        current_action = Gio.SimpleAction.new(self.CURRENT_ACTION, None)
+        current_action = Gio.SimpleAction.new_stateful(self.CURRENT_ACTION, None, GLib.Variant.new_boolean(self.current_state()))
         current_action.connect('activate', self.toggle_mode_activated)
         self.action_group.insert(current_action)
+        
+        settings_action = Gio.SimpleAction.new(self.SETTINGS_ACTION, None)
+        settings_action.connect('activate', self.settings_action_activated)
+        self.action_group.insert(settings_action)
+
 
     def _create_section(self):
         section = Gio.Menu()
         
-        current_menu_item = Gio.MenuItem.new('Immersive mode is <b>' + self.current_state() + '</b>', 'indicator.{}'.format(self.CURRENT_ACTION))
-        icon = Gio.ThemedIcon.new_with_default_fallbacks(self.current_icon())
-        current_menu_item.set_attribute_value('icon', icon.serialize())
+        current_menu_item = Gio.MenuItem.new('Immersive mode', 'indicator.{}'.format(self.CURRENT_ACTION))
+        current_menu_item.set_attribute_value('x-canonical-type', GLib.Variant.new_string('com.canonical.indicator.switch'))
         section.append_item(current_menu_item)
+        
+        settings_menu_item = Gio.MenuItem.new('Immersive Mode Settings', 'indicator.{}'.format(self.SETTINGS_ACTION))
+        section.append_item(settings_menu_item)
+
 
         return section
 
@@ -89,8 +112,8 @@ class ImmersiveIndicator(object):
 
     def update_immersivemode(self): 
         logger.debug('Updated state to: {}'.format(self.current_icon()))
-        # TODO figure out why this gives off a warning
         self.action_group.change_action_state(self.ROOT_ACTION, self.root_state())
+        self.action_group.change_action_state(self.CURRENT_ACTION, GLib.Variant.new_boolean(self.current_state()))
         self._update_menu()
 
     def run(self):
@@ -106,7 +129,7 @@ class ImmersiveIndicator(object):
         vardict = GLib.VariantDict.new()
         
         currentState = self.current_state()
-        if currentState == 'Enabled':
+        if currentState == True:
             vardict.insert_value('visible', GLib.Variant.new_boolean(True))
         else:
             vardict.insert_value('visible', GLib.Variant.new_boolean(False))
@@ -133,9 +156,9 @@ class ImmersiveIndicator(object):
     def current_state(self):
         currentValue = self.current_edgewidth()
         if currentValue == 0:
-            state = 'Enabled'
+            state = True
         else:
-            state = 'Disabled'
+            state = False
         return state
 
 
