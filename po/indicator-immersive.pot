@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator-immersive.kugiigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 19:26+0800\n"
+"POT-Creation-Date: 2020-07-08 17:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,161 +17,185 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:25
+#: ../qml/Main.qml:28
 msgid "Immersive mode Indicator"
 msgstr ""
 
-#: ../qml/Main.qml:55
+#: ../qml/Main.qml:69 ../qml/Main.qml:121
 msgid "What is this?"
 msgstr ""
 
-#: ../qml/Main.qml:64
+#: ../qml/Main.qml:130
 msgid ""
 "This is a proof of concept of a new mode for the desktop environment Lomiri "
 "wherein some system gestures are disabled to help the user focus on the "
 "current app they're using without much distractions."
 msgstr ""
 
-#: ../qml/Main.qml:65
+#: ../qml/Main.qml:131
 msgid ""
 "This is specially useful for apps that require different in-app gestures "
 "that could conflict with system gesture such as painting/drawing apps and "
 "games."
 msgstr ""
 
-#: ../qml/Main.qml:66
+#: ../qml/Main.qml:132
 msgid ""
 "I call this Immersive mode because I feel like it best describes its "
 "purpose. "
 msgstr ""
 
-#: ../qml/Main.qml:67
+#: ../qml/Main.qml:133
 msgid ""
 "However, it's somewhat borrowed from Android so if you can think of a better "
 "name then let me know :)"
 msgstr ""
 
-#: ../qml/Main.qml:74
+#: ../qml/Main.qml:140
 msgid "What does it exactly do?"
 msgstr ""
 
-#: ../qml/Main.qml:83
+#: ../qml/Main.qml:149
 msgid ""
 "When Immersive mode is enabled, left and right edge gestures are disabled. "
 msgstr ""
 
-#: ../qml/Main.qml:84
+#: ../qml/Main.qml:150
 msgid ""
 "This means you can't swipe from the left to open the launcher or the app "
 "drawer and you can't open the app spread from the right edge. "
 msgstr ""
 
-#: ../qml/Main.qml:85
+#: ../qml/Main.qml:151
 msgid ""
 "This is all it does at the moment but if ever this actually gets into Lomiri "
 "officially, maybe some other gestures can also be disabled such as the 3-"
 "finger gestures in tablets."
 msgstr ""
 
-#: ../qml/Main.qml:92
+#: ../qml/Main.qml:158
 msgid "How does it work?"
 msgstr ""
 
-#: ../qml/Main.qml:101
+#: ../qml/Main.qml:167
 msgid ""
 "Left and right edges are disabled by simply setting Lomiri's GSettings key "
 "\"Edge Drag Width\" to 0. "
 msgstr ""
 
-#: ../qml/Main.qml:102
+#: ../qml/Main.qml:168
 msgid ""
 "This settings can also be adjusted via UT Tweak Tool but the range there is "
 "only limited to 1-6."
 msgstr ""
 
-#: ../qml/Main.qml:109
+#: ../qml/Main.qml:175
 msgid "Anything else?"
 msgstr ""
 
-#: ../qml/Main.qml:118
+#: ../qml/Main.qml:184
 msgid ""
 "Some devices such as the Nexus 5 and Meizu MX4 has an issue wherein one edge "
 "is still active even with Immersive mode enabled."
 msgstr ""
 
-#: ../qml/Main.qml:119
+#: ../qml/Main.qml:185
 msgid ""
 "The still active edge depends on the orientation and possibly an invisible "
 "bug on these devices."
 msgstr ""
 
-#: ../qml/Main.qml:120
+#: ../qml/Main.qml:186
 msgid ""
 "Disabling Immersive mode will reset the settings \"Edge Drag Width\" to its "
 "default value which is 2. "
 msgstr ""
 
-#: ../qml/Main.qml:121
+#: ../qml/Main.qml:187
 msgid ""
 "So take note for those users who changed this value especially those who use "
 "a phone case."
 msgstr ""
 
-#: ../qml/Main.qml:122
+#: ../qml/Main.qml:188
 msgid ""
 "While on Immersive mode, 4-finger tap on the screen to open the app drawer."
 msgstr ""
 
-#: ../qml/Main.qml:123
+#: ../qml/Main.qml:189
 msgid ""
 "Don't forget to uninstall the indicator here first before uninstalling this "
 "app."
 msgstr ""
 
-#: ../qml/Main.qml:157
+#: ../qml/Main.qml:204
 msgid "Default edge width: %1"
 msgstr ""
 
-#: ../qml/Main.qml:158
+#: ../qml/Main.qml:205
 msgid "This will be used when turning off immersive mode"
 msgstr ""
 
-#: ../qml/Main.qml:159
+#: ../qml/Main.qml:206
 msgid "How big (in grid units) the edge-drag sensitive area should be."
 msgstr ""
 
-#: ../qml/Main.qml:175
+#: ../qml/Main.qml:223
 msgid "Reset"
 msgstr ""
 
-#: ../qml/Main.qml:211
+#: ../qml/Main.qml:278
 msgid "Install Indicator"
 msgstr ""
 
-#: ../qml/Main.qml:211
+#: ../qml/Main.qml:278
 msgid "Uninstall Indicator"
 msgstr ""
 
-#: ../qml/Main.qml:225
+#: ../qml/Main.qml:293
+msgid "Restart Lomiri/Unity8"
+msgstr ""
+
+#: ../qml/Main.qml:308
 msgid "Uninstall the indicator here before uninstalling the app!"
 msgstr ""
 
-#: ../qml/Main.qml:243
+#: ../qml/Main.qml:325 ../qml/Main.qml:331
+msgid "Restart Lomiri"
+msgstr ""
+
+#: ../qml/Main.qml:326
+msgid "Do you want to restart Lomiri now?"
+msgstr ""
+
+#: ../qml/Main.qml:327
+msgid "All currently open apps will be closed."
+msgstr ""
+
+#: ../qml/Main.qml:328
+msgid "Save all your work before continuing!"
+msgstr ""
+
+#: ../qml/Main.qml:340
+msgid "Cancel"
+msgstr ""
+
+#: ../qml/Main.qml:351
 msgid "Successfully installed!"
 msgstr ""
 
-#: ../qml/Main.qml:243 ../qml/Main.qml:254
+#: ../qml/Main.qml:351 ../qml/Main.qml:363
 msgid "Please reboot or restart Lomiri/Unity8"
 msgstr ""
 
-#: ../qml/Main.qml:247
+#: ../qml/Main.qml:356
 msgid "Failed to install"
 msgstr ""
 
-#: ../qml/Main.qml:254
+#: ../qml/Main.qml:363
 msgid "Successfully uninstalled!"
 msgstr ""
 
-#: ../qml/Main.qml:258
+#: ../qml/Main.qml:368
 msgid "Failed to uninstall"
 msgstr ""

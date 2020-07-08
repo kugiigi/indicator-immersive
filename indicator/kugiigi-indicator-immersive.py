@@ -114,7 +114,6 @@ class ImmersiveIndicator(object):
         logger.debug('Updated state to: {}'.format(self.current_icon()))
         self.action_group.change_action_state(self.ROOT_ACTION, self.root_state())
         self.action_group.change_action_state(self.CURRENT_ACTION, GLib.Variant.new_boolean(self.current_state()))
-        self._update_menu()
 
     def run(self):
         self._setup_actions()
