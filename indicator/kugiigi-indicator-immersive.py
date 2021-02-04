@@ -46,6 +46,14 @@ class ImmersiveIndicator(object):
         self.config_object.read(self.config_file)
         general_config = self.config_object["General"]
         return int(general_config['defaultEdgeWidth'].strip())
+    def get_default_edge_sensitivity(self):
+        self.config_object.read(self.config_file)
+        general_config = self.config_object["General"]
+        return int(general_config['defaultEdgeSensitivity'].strip())
+    def get_default_edge_minpush(self):
+        self.config_object.read(self.config_file)
+        general_config = self.config_object["General"]
+        return int(general_config['defaultEdgeMinPush'].strip())
 
     def get_text(self, condition):
         text = 'Indicator Immersive'
@@ -60,9 +68,13 @@ class ImmersiveIndicator(object):
         edgeWidth = self.current_edgewidth()
         if edgeWidth == 0:
             self.settings.set_uint('edge-drag-width', self.get_default_edge_width())
+            self.settings.set_uint('edge-barrier-sensitivity', self.get_default_edge_sensitivity())
+            self.settings.set_uint('edge-barrier-min-push', self.get_default_edge_minpush())
             self.current_switch_icon = 'phone-smartphone-symbolic'
         else:
             self.settings.set_uint('edge-drag-width', 0)
+            self.settings.set_uint('edge-barrier-sensitivity', 1)
+            self.settings.set_uint('edge-barrier-min-push', 200)
             self.current_switch_icon = 'media-record'
         
         self.update_immersivemode()
