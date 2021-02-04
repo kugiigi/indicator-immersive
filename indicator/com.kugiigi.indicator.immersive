@@ -1,8 +1,8 @@
 [Indicator Service]
 Name=kugiigi-indicator-immersive
 ObjectPath=/com/kugiigi/indicator/immersive
-Position=95
+Position=85
 
 [phone]
 ObjectPath=/com/kugiigi/indicator/immersive/phone
-Position=95
+Position=85
