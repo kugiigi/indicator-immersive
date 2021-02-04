@@ -20,6 +20,8 @@ MainView {
         id: settings
     
         property int defaultEdgeWidth: 2
+        property int defaultEdgeSensitivity: 50
+        property int defaultEdgeMinPush: 2
     }
 
     Page {
@@ -244,6 +246,116 @@ MainView {
                         
                         onValueChanged: {
                             settings.defaultEdgeWidth = value.toFixed(0)
+                        }
+                    }
+                }
+                
+                ListItem {
+                    height: Math.max(implicitHeight, edgeSenslayout.height)
+                    divider.visible: false
+                    Layout.fillWidth: true
+
+                    ListItemLayout {
+                        id: edgeSenslayout
+                        anchors.centerIn: parent
+                        title.text: i18n.tr("Default edge mouse sensitivity: %1").arg(settings.defaultEdgeSensitivity)
+                        subtitle.text: i18n.tr("This will be used when turning off immersive mode")
+                        summary.text: i18n.tr("How sensitive the edges are from mouse push.")
+                    }
+                }
+
+
+                ListItem {
+                    height: units.gu(16)
+                    divider.visible: false
+                    Layout.fillWidth: true
+
+                    Button {
+                        id: edgeSensResetButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.margins: units.gu(2)
+
+                        action: Action {
+                            text: i18n.tr("Reset")
+                            onTriggered: {
+                                settings.defaultEdgeSensitivity = 50
+                                edgeSensSlider.value = settings.defaultEdgeSensitivity
+                            }
+                        }
+                    }
+
+                    Slider {
+                        id: edgeSensSlider
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: edgeSensResetButton.right
+                        anchors.right: parent.right
+                        anchors.margins: units.gu(2)
+
+                        minimumValue: 1
+                        maximumValue: 100
+
+                        Component.onCompleted: {
+                            value = settings.defaultEdgeSensitivity
+                        }
+                        
+                        onValueChanged: {
+                            settings.defaultEdgeSensitivity = value.toFixed(0)
+                        }
+                    }
+                }
+                
+                ListItem {
+                    height: Math.max(implicitHeight, edgeMinlayout.height)
+                    divider.visible: false
+                    Layout.fillWidth: true
+
+                    ListItemLayout {
+                        id: edgeMinlayout
+                        anchors.centerIn: parent
+                        title.text: i18n.tr("Default edge mouse minimum push sensitivity: %1").arg(settings.defaultEdgeMinPush)
+                        subtitle.text: i18n.tr("This will be used when turning off immersive mode")
+                        summary.text: i18n.tr("How sensitive the edges are from mouse push.")
+                    }
+                }
+
+
+                ListItem {
+                    height: units.gu(16)
+                    divider.visible: false
+                    Layout.fillWidth: true
+
+                    Button {
+                        id: edgeMinResetButton
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.margins: units.gu(2)
+
+                        action: Action {
+                            text: i18n.tr("Reset")
+                            onTriggered: {
+                                settings.defaultEdgeMinPush = 2
+                                edgeMinSlider.value = settings.defaultEdgeMinPush
+                            }
+                        }
+                    }
+
+                    Slider {
+                        id: edgeMinSlider
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: edgeMinResetButton.right
+                        anchors.right: parent.right
+                        anchors.margins: units.gu(2)
+
+                        minimumValue: 1
+                        maximumValue: 100
+
+                        Component.onCompleted: {
+                            value = settings.defaultEdgeMinPush
+                        }
+                        
+                        onValueChanged: {
+                            settings.defaultEdgeMinPush = value.toFixed(0)
                         }
                     }
                 }
