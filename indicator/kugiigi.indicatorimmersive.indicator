@@ -1,0 +1,8 @@
+[Indicator Service]
+Name=indicatorimmersive
+ObjectPath=/kugiigi/indicatorimmersive/indicator
+Position=85
+
+[phone]
+ObjectPath=/kugiigi/indicatorimmersive/indicator/phone
+Position=85

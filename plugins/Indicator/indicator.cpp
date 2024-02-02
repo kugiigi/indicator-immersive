@@ -46,8 +46,8 @@ void Indicator::onUninstallFinished(int exitCode, QProcess::ExitStatus exitStatu
 }
 
 bool Indicator::checkInstalled() {
-    QFileInfo session("/home/phablet/.config/upstart/kugiigi-indicator-immersive.conf");
-    QFileInfo indicator("/home/phablet/.local/share/unity/indicators/com.kugiigi.indicator.immersive");
+    QFileInfo session("/home/phablet/.config/systemd/user/kugiigi.indicatorimmersive.service");
+    QFileInfo indicator("/home/phablet/.local/share/ayatana/indicators/kugiigi.indicatorimmersive.indicator");
 
     m_isInstalled = session.exists() && indicator.exists();
     Q_EMIT isInstalledChanged(m_isInstalled);
