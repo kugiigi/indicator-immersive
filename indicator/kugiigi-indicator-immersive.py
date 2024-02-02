@@ -10,8 +10,8 @@ from gi.repository import Gio
 from gi.repository import GLib
 from configparser import ConfigParser
 
-BUS_NAME = 'com.kugiigi.indicator.immersive'
-BUS_OBJECT_PATH = '/com/kugiigi/indicator/immersive'
+BUS_NAME = 'kugiigi.indicatorimmersive.indicator'
+BUS_OBJECT_PATH = '/kugiigi/indicatorimmersive/indicator'
 BUS_OBJECT_PATH_PHONE = BUS_OBJECT_PATH + '/phone'
 
 logger = logging.getLogger()
@@ -27,7 +27,7 @@ class ImmersiveIndicator(object):
     CURRENT_ACTION = "toggle"
     SETTINGS_ACTION = 'settings'
     MAIN_SECTION = 0
-    BASE_KEY = 'com.canonical.Unity8'
+    BASE_KEY = 'com.lomiri.Shell'
     
     config_file = "/home/phablet/.config/indicator-immersive/indicator-immersive.conf"  # TODO don't hardcode this
     config_object = ConfigParser()
@@ -81,30 +81,30 @@ class ImmersiveIndicator(object):
         
     def settings_action_activated(self, action, data):
         logger.debug('settings_action_activated')
-        subprocess.Popen(shlex.split('ubuntu-app-launch indicator-immersive.kugiigi_indicator-immersive'))
+        subprocess.Popen(shlex.split('lomiri-app-launch indicator-immersive.kugiigi_indicator-immersive'))
 
 
     def _setup_actions(self):
         root_action = Gio.SimpleAction.new_stateful(self.ROOT_ACTION, None, self.root_state())
-        self.action_group.insert(root_action)
+        self.action_group.add_action(root_action)
         
         current_action = Gio.SimpleAction.new_stateful(self.CURRENT_ACTION, None, GLib.Variant.new_boolean(self.current_state()))
         current_action.connect('activate', self.toggle_mode_activated)
-        self.action_group.insert(current_action)
+        self.action_group.add_action(current_action)
         
         settings_action = Gio.SimpleAction.new(self.SETTINGS_ACTION, None)
         settings_action.connect('activate', self.settings_action_activated)
-        self.action_group.insert(settings_action)
+        self.action_group.add_action(settings_action)
 
 
     def _create_section(self):
         section = Gio.Menu()
         
         current_menu_item = Gio.MenuItem.new('Immersive mode', 'indicator.{}'.format(self.CURRENT_ACTION))
-        current_menu_item.set_attribute_value('x-canonical-type', GLib.Variant.new_string('com.canonical.indicator.switch'))
+        current_menu_item.set_attribute_value('x-ayatana-type', GLib.Variant.new_string('org.ayatana.indicator.switch'))
         section.append_item(current_menu_item)
         
-        settings_menu_item = Gio.MenuItem.new('Immersive Mode Settings', 'indicator.{}'.format(self.SETTINGS_ACTION))
+        settings_menu_item = Gio.MenuItem.new('Indicator Settings', 'indicator.{}'.format(self.SETTINGS_ACTION))
         section.append_item(settings_menu_item)
 
 
@@ -114,7 +114,7 @@ class ImmersiveIndicator(object):
         self.sub_menu.insert_section(self.MAIN_SECTION, 'Immersive', self._create_section())
 
         root_menu_item = Gio.MenuItem.new('Immersive', 'indicator.{}'.format(self.ROOT_ACTION))
-        root_menu_item.set_attribute_value('x-canonical-type', GLib.Variant.new_string('com.canonical.indicator.root'))
+        root_menu_item.set_attribute_value('x-ayatana-type', GLib.Variant.new_string('org.ayatana.indicator.root'))
         root_menu_item.set_submenu(self.sub_menu)
         self.menu.append_item(root_menu_item)
 

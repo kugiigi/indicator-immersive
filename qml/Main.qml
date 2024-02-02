@@ -1,10 +1,10 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.3
-import Ubuntu.Components 1.3
+import Lomiri.Components 1.3
 import Qt.labs.settings 1.0
 import Indicator 1.0
 import io.thp.pyotherside 1.4 //for Python
-import Ubuntu.Components.Popups 1.3
+import Lomiri.Components.Popups 1.3
 
 MainView {
     id: root
@@ -15,10 +15,10 @@ MainView {
 
     width: units.gu(45)
     height: units.gu(75)
-    
+
     Settings {
         id: settings
-    
+
         property int defaultEdgeWidth: 2
         property int defaultEdgeSensitivity: 50
         property int defaultEdgeMinPush: 2
@@ -93,7 +93,7 @@ MainView {
                                 asynchronous: true
 
                                 Behavior on rotation {
-                                    UbuntuNumberAnimation {}
+                                    LomiriNumberAnimation {}
                                 }
                             }
                         }
@@ -198,7 +198,7 @@ MainView {
                 ListItem {
                     height: Math.max(implicitHeight, dragWidthlayout.height)
                     divider.visible: false
-                                        Layout.fillWidth: true
+                    Layout.fillWidth: true
 
                     ListItemLayout {
                         id: dragWidthlayout
@@ -395,22 +395,7 @@ MainView {
                             Indicator.install();
                         }
                     }
-                    color: !Indicator.isInstalled ? UbuntuColors.green : UbuntuColors.red
-                }
-                
-                Button {
-                    id: restartButton
-                    visible: false
-
-                    text: i18n.tr("Restart Lomiri/Unity8")
-                    onClicked: {
-                        var popup = PopupUtils.open(confirmDialog);
-                        popup.accepted.connect(function() {
-                            py.call('os.system', ["restart unity8"], function (result) {
-                            // TODO: add error handling
-                            });
-                        })
-                    }
+                    color: !Indicator.isInstalled ? LomiriColors.green : LomiriColors.red
                 }
             }
             
@@ -419,38 +404,10 @@ MainView {
 
                 text: i18n.tr("Uninstall the indicator here before uninstalling the app!") + "\n"
                 horizontalAlignment: Text.AlignHCenter
-                color: UbuntuColors.red
+                color: LomiriColors.red
                 wrapMode: Text.Wrap
                 
                 Layout.fillWidth: true
-            }
-        }
-    }
-
-     Component {
-        id: confirmDialog
-        Dialog {
-            id: confirmDialogue
-
-            signal accepted;
-
-            title: i18n.tr("Restart Lomiri")
-            text: i18n.tr("Do you want to restart Lomiri now?") +
-                "<br />" + i18n.tr("All currently open apps will be closed.") +
-                "<br />" + i18n.tr("Save all your work before continuing!")
-
-            Button{
-                text: i18n.tr("Restart Lomiri")
-                color: theme.palette.normal.negative
-                onClicked: {
-                    confirmDialogue.accepted();
-                    PopupUtils.close(confirmDialogue);
-                }
-            }
-
-            Button{
-                text: i18n.tr("Cancel")
-                onClicked: PopupUtils.close(confirmDialogue);
             }
         }
     }
@@ -460,25 +417,23 @@ MainView {
 
         onInstalled: {
             if (success) {
-                message.text = i18n.tr("Successfully installed!") + "\n" + i18n.tr("Please reboot or restart Lomiri/Unity8");
-                message.color = UbuntuColors.green;
-                restartButton.visible = true;
+                message.text = i18n.tr("Successfully installed!") + "\n" + i18n.tr("Please reboot to enable the indicator");
+                message.color = LomiriColors.green;
             }
             else {
                 message.text = i18n.tr("Failed to install");
-                message.color = UbuntuColors.red;
+                message.color = LomiriColors.red;
             }
         }
 
         onUninstalled: {
             if (success) {
-                message.text = i18n.tr("Successfully uninstalled!") + "\n" + i18n.tr("Please reboot or restart Lomiri/Unity8");
-                message.color = UbuntuColors.green;
-                restartButton.visible = true;
+                message.text = i18n.tr("Successfully uninstalled!") + "\n" + i18n.tr("Please reboot to enable the indicator");
+                message.color = LomiriColors.green;
             }
             else {
                 message.text = i18n.tr("Failed to uninstall");
-                message.color = UbuntuColors.red;
+                message.color = LomiriColors.red;
             }
         }
     }
