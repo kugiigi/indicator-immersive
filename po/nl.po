@@ -7,81 +7,81 @@ msgid ""
 msgstr ""
 "Project-Id-Version: indicator-immersive.kugiigi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-15 19:26+0800\n"
-"PO-Revision-Date: 2020-07-03 17:46+0200\n"
+"POT-Creation-Date: 2024-02-02 16:35+0000\n"
+"PO-Revision-Date: 2024-02-04 13:21+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
-"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: nl\n"
+"X-Generator: Poedit 3.4.2\n"
 
-#: ../qml/Main.qml:25
+#: ../qml/Main.qml:30
 msgid "Immersive mode Indicator"
-msgstr "Beeldvullende modus-indicator"
+msgstr "Schermvullende weergave-indicator"
 
-#: ../qml/Main.qml:55
+#: ../qml/Main.qml:71 ../qml/Main.qml:123
 msgid "What is this?"
 msgstr "Wat is dit?"
 
-#: ../qml/Main.qml:64
+#: ../qml/Main.qml:132
 msgid ""
 "This is a proof of concept of a new mode for the desktop environment Lomiri "
 "wherein some system gestures are disabled to help the user focus on the "
 "current app they're using without much distractions."
 msgstr ""
-"Dit is een proef omtrent een nieuwe modus voor de werkomgeving Lomiri, "
+"Dit is een proef omtrent een nieuwe weergave voor de werkomgeving Lomiri, "
 "waarin sommige systeemgebaren uitgeschakeld zijn zodat de gebruiken zich "
 "beter kan concentreren op het gebruiken van de huidige app."
 
-#: ../qml/Main.qml:65
+#: ../qml/Main.qml:133
 msgid ""
 "This is specially useful for apps that require different in-app gestures "
 "that could conflict with system gesture such as painting/drawing apps and "
 "games."
 msgstr ""
-"Dit is vooral nuttig voor apps die in-appgebaren gebruiken die kunnen "
-"conflicteren met systeemgebaren, zoals tekenapps en spellen."
+"Dit is vooral nuttig voor apps die in-appgebaren gebruiken die kunnen botsen "
+"met systeemgebaren, zoals tekenapps en spellen."
 
-#: ../qml/Main.qml:66
+#: ../qml/Main.qml:134
 msgid ""
 "I call this Immersive mode because I feel like it best describes its "
 "purpose. "
 msgstr ""
-"Ik noem dit 'Beeldvullende modus' omdat ik denk dat dit het doel het beste "
-"beschrijft. "
+"Ik noem dit ‘Schermvullende weergave’, omdat ik denk dat dit het doel het "
+"beste beschrijft. "
 
-#: ../qml/Main.qml:67
+#: ../qml/Main.qml:135
 msgid ""
 "However, it's somewhat borrowed from Android so if you can think of a better "
 "name then let me know :)"
 msgstr ""
 "Maar de naam is wel enigszins overgenomen van Android, dus laat me weten als "
-"je een betere naam hebt :)"
+"je een betere naam hebt. :)"
 
-#: ../qml/Main.qml:74
+#: ../qml/Main.qml:142
 msgid "What does it exactly do?"
 msgstr "Wat doet het precies?"
 
-#: ../qml/Main.qml:83
+#: ../qml/Main.qml:151
 msgid ""
 "When Immersive mode is enabled, left and right edge gestures are disabled. "
 msgstr ""
-"Als de beeldvullende modus is ingeschakeld, dan zijn gebaren vanaf de "
+"Als de schermvullende weergave is ingeschakeld, dan zijn gebaren vanaf de "
 "linker- en rechterrand uitgeschakeld. "
 
-#: ../qml/Main.qml:84
+#: ../qml/Main.qml:152
 msgid ""
 "This means you can't swipe from the left to open the launcher or the app "
 "drawer and you can't open the app spread from the right edge. "
 msgstr ""
-"Dit houdt in dat je niet vanaf de linkerrand kunt vegen om de starter of "
-"applijst te openen, evenmin als het overzicht met geopende apps vanaf de "
+"Dit houdt in dat je niet vanaf de linkerrand kunt vegen om de starter of het "
+"appoverzicht te openen, evenmin als het overzicht met geopende apps vanaf de "
 "rechterrand. "
 
-#: ../qml/Main.qml:85
+#: ../qml/Main.qml:153
 msgid ""
 "This is all it does at the moment but if ever this actually gets into Lomiri "
 "officially, maybe some other gestures can also be disabled such as the 3-"
@@ -91,19 +91,19 @@ msgstr ""
 "wordt opgenomen in Lomiri, kan er wellicht ondersteuning komen voor het "
 "uitschakelen van meer gebaren, zoals die met 3 vingers op tablets."
 
-#: ../qml/Main.qml:92
+#: ../qml/Main.qml:160
 msgid "How does it work?"
 msgstr "Hoe werkt het?"
 
-#: ../qml/Main.qml:101
+#: ../qml/Main.qml:169
 msgid ""
 "Left and right edges are disabled by simply setting Lomiri's GSettings key "
 "\"Edge Drag Width\" to 0. "
 msgstr ""
 "De linker- en rechterranden worden uitgeschakeld door Lomiri's GSettings-"
-"sleutel 'Edge Drag Width' op '0' in te stellen."
+"sleutel ‘Edge Drag Width’ op ‘0’ in te stellen."
 
-#: ../qml/Main.qml:102
+#: ../qml/Main.qml:170
 msgid ""
 "This settings can also be adjusted via UT Tweak Tool but the range there is "
 "only limited to 1-6."
@@ -111,19 +111,20 @@ msgstr ""
 "Deze instellingen kunnen ook worden aangepast met UT Tweak Tool, maar het "
 "bereik is daar beperkt van 1 tot 6."
 
-#: ../qml/Main.qml:109
+#: ../qml/Main.qml:177
 msgid "Anything else?"
 msgstr "Nog meer wat ik moet weten?"
 
-#: ../qml/Main.qml:118
+#: ../qml/Main.qml:186
 msgid ""
 "Some devices such as the Nexus 5 and Meizu MX4 has an issue wherein one edge "
 "is still active even with Immersive mode enabled."
 msgstr ""
 "Sommige apparaten, zoals de Nexus 5 en Meizu MX4, hebben een probleem: één "
-"rand blijft altijd actief, óók als de beeldvullende modus in ingeschakeld."
+"rand blijft altijd actief, óók als de schermvullende weergave in "
+"ingeschakeld."
 
-#: ../qml/Main.qml:119
+#: ../qml/Main.qml:187
 msgid ""
 "The still active edge depends on the orientation and possibly an invisible "
 "bug on these devices."
@@ -131,15 +132,15 @@ msgstr ""
 "De actieve rand is afhankelijk van de oriëntatie en mogelijk een onzichtbare "
 "bug."
 
-#: ../qml/Main.qml:120
+#: ../qml/Main.qml:188
 msgid ""
 "Disabling Immersive mode will reset the settings \"Edge Drag Width\" to its "
 "default value which is 2. "
 msgstr ""
-"Schakel de beeldvullende modus uit om Lomiri's GSettings-sleutel 'Edge Drag "
-"Width' weer in te stellen op '2'."
+"Schakel de schermvullende weergave uit om Lomiri's GSettings-sleutel ‘Edge "
+"Drag Width’ weer in te stellen op ‘2’."
 
-#: ../qml/Main.qml:121
+#: ../qml/Main.qml:189
 msgid ""
 "So take note for those users who changed this value especially those who use "
 "a phone case."
@@ -147,14 +148,14 @@ msgstr ""
 "Houdt deze waarde dus in het achterhoofd, helemaal als je een hoesje "
 "gebruikt."
 
-#: ../qml/Main.qml:122
+#: ../qml/Main.qml:190
 msgid ""
 "While on Immersive mode, 4-finger tap on the screen to open the app drawer."
 msgstr ""
-"Druk met 4 vingers op het scherm om de applijst te openen in de "
-"beeldvullende modus."
+"Druk met 4 vingers op het scherm om het appoverzicht te openen in de "
+"schermvullende weergave."
 
-#: ../qml/Main.qml:123
+#: ../qml/Main.qml:191
 msgid ""
 "Don't forget to uninstall the indicator here first before uninstalling this "
 "app."
@@ -162,51 +163,64 @@ msgstr ""
 "Vergeet niet om hier de indicator te verwijderen vóórdat je deze app "
 "deïnstalleert."
 
-#: ../qml/Main.qml:157
+#: ../qml/Main.qml:206
 msgid "Default edge width: %1"
 msgstr "Standaard randbreedte: %1"
 
-#: ../qml/Main.qml:158
+#: ../qml/Main.qml:207 ../qml/Main.qml:262 ../qml/Main.qml:317
 msgid "This will be used when turning off immersive mode"
-msgstr "Deze waarde wordt ingesteld als je de beeldvullende modus uitschakelt"
+msgstr ""
+"Deze waarde wordt ingesteld als je de schermvullende weergave uitschakelt"
 
-#: ../qml/Main.qml:159
+#: ../qml/Main.qml:208
 msgid "How big (in grid units) the edge-drag sensitive area should be."
 msgstr ""
 "Hoe groot (in roostereenheden) het veeggebied langs de randen moet zijn."
 
-#: ../qml/Main.qml:175
+#: ../qml/Main.qml:225 ../qml/Main.qml:280 ../qml/Main.qml:335
 msgid "Reset"
 msgstr "Standaardwaarden"
 
-#: ../qml/Main.qml:211
+#: ../qml/Main.qml:261
+msgid "Default edge mouse sensitivity: %1"
+msgstr "Standaard randgevoeligheid: %1"
+
+#: ../qml/Main.qml:263 ../qml/Main.qml:318
+msgid "How sensitive the edges are from mouse push."
+msgstr "Hoe gevoelig de randen zijn voor muisbewegingen."
+
+#: ../qml/Main.qml:316
+msgid "Default edge mouse minimum push sensitivity: %1"
+msgstr "Standaard minimale randgevoeligheid: %1"
+
+#: ../qml/Main.qml:390
 msgid "Install Indicator"
 msgstr "Indicator toevoegen"
 
-#: ../qml/Main.qml:211
+#: ../qml/Main.qml:390
 msgid "Uninstall Indicator"
 msgstr "Indicator verwijderen"
 
-#: ../qml/Main.qml:225
+#: ../qml/Main.qml:405
 msgid "Uninstall the indicator here before uninstalling the app!"
 msgstr "Verwijder hier de indicator vóórdat je de app deïnstalleert!"
 
-#: ../qml/Main.qml:243
+#: ../qml/Main.qml:420
 msgid "Successfully installed!"
 msgstr "De indicator is toegevoegd!"
 
-#: ../qml/Main.qml:243 ../qml/Main.qml:254
-msgid "Please reboot or restart Lomiri/Unity8"
-msgstr "Herstart Lomiri/Unity8"
+#: ../qml/Main.qml:420 ../qml/Main.qml:431
+msgid "Please reboot to enable the indicator"
+msgstr "Herstart om de indicator in gebruik te nemen"
 
-#: ../qml/Main.qml:247
+#: ../qml/Main.qml:424
 msgid "Failed to install"
 msgstr "De indicator kan niet worden toegevoegd"
 
-#: ../qml/Main.qml:254
+#: ../qml/Main.qml:431
 msgid "Successfully uninstalled!"
 msgstr "De indicator is verwijderd!"
 
-#: ../qml/Main.qml:258
+#: ../qml/Main.qml:435
 msgid "Failed to uninstall"
 msgstr "De indicator kan niet worden verwijderd"
